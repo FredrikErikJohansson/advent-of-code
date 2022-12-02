@@ -5,11 +5,18 @@ module.exports = {
     return fs.readFileSync(path, { encoding: "utf8" }).split("\n");
   },
 
-  loadInput: function (path = "./input.txt") {
+  loadInputInt: function (path = "./input.txt") {
     return fs
       .readFileSync(path, { encoding: "utf8" })
       .split("\n")
       .filter((i) => Boolean(i))
       .map((i) => parseInt(i));
+  },
+
+  loadInputString: function (path = "./input.txt") {
+    return fs
+      .readFileSync(path, { encoding: "utf8" })
+      .split("\n")
+      .filter((i) => Boolean(i));
   },
 };
