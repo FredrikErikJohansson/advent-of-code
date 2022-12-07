@@ -20,11 +20,17 @@ for (let i = 1; i < input.length; i++) {
       }
     } else if (commands[1] === "ls") {
       // Create path
-      fileSystem[currentPath] = 0;
+      if (!fileSystem[currentPath]) {
+        fileSystem[currentPath] = 0;
+      }
     }
   } else {
     // Add size
-    fileSystem[currentPath] += parseInt(commands[0]);
+    if (fileSystem[currentPath]) {
+      fileSystem[currentPath] += parseInt(commands[0]);
+    } else {
+      fileSystem[currentPath] += parseInt(commands[0]);
+    }
   }
 }
 
